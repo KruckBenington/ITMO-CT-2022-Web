@@ -3,6 +3,7 @@
     --border-radius: 6px;
     --black-color: #333;
     --caption-color: #3B5998;
+    --search-color: #f4f4f4;
     color: var(--black-color);
     font-family: Verdana, sans-serif;
     font-size: 16px;
@@ -29,6 +30,8 @@ html {
 
 header {
     position: relative;
+
+    border: 1px solid #3B5998;
 }
 
 header .languages {
@@ -66,6 +69,15 @@ header nav ul li a {
     font-family: "Arial Narrow", sans-serif;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+header nav .search {
+    float: right;
+
+}
+
+header nav .search input {
+    background-image: url("../2-1-codeforces-layout-search/search-16x16.png");
 }
 
 .middle {
@@ -125,8 +137,3 @@ aside section .footer a:after {
     content: " →";
 }
 
-header nav .search {
-    float: right;
-
-    padding: 0;
-}
