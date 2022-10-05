@@ -3,6 +3,9 @@
     --border-radius: 6px;
     --black-color: #333;
     --caption-color: #3B5998;
+    --input-background-color: #f4f4f4;
+    --input-border-color: #d4d4d4;
+    --input-outline-color: #8eb4f9;
     color: var(--black-color);
     font-family: Verdana, sans-serif;
     font-size: 16px;
@@ -68,9 +71,26 @@ header nav ul li a {
     text-transform: uppercase;
 }
 
+header nav .search {
+    position: relative;
+    float: right;
+    bottom: 1.3rem;
+    right: 0.25rem;
+    height: 1.3rem;
+}
+
+header nav .search input {
+    border: 1px solid var(--input-border-color);
+    background: var(--input-background-color) url(search.png) 2px 3px no-repeat;
+    padding: 2px 2px 2px 20px;
+    outline-color: var(--input-outline-color);
+}
+
+
 .middle {
     margin-top: 1rem;
     overflow: auto;
+
 }
 
 aside {
@@ -124,3 +144,4 @@ aside section .footer a {
 aside section .footer a:after {
     content: " →";
 }
+

@@ -3,9 +3,13 @@
     --border-radius: 6px;
     --black-color: #333;
     --caption-color: #3B5998;
+    --main-article-title-color: #3B5998;
+    --main-article-information-color: #868686;
+    --main-article-footer-left-text-color: #269716;
     color: var(--black-color);
     font-family: Verdana, sans-serif;
     font-size: 16px;
+    --main-article-footer-border-color: #bfbfbf;
 }
 
 html {
@@ -81,6 +85,69 @@ aside {
 main {
     margin-right: 21rem;
 }
+
+
+main article .title {
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--main-article-title-color);
+}
+
+main article .information {
+    line-height: 170%;
+    font-size: 12px;
+    color: var(--main-article-information-color);
+}
+
+main article .body {
+    font-size: 15px;
+    padding-left: 1rem;
+    border-left: 4px solid #9b9b9b;
+}
+
+main article .body p:last-child {
+    margin-bottom: 0;
+}
+
+main article .attachment {
+    padding-left: 0;
+}
+
+main article .attachment li {
+    color: var(--main-article-information-color);
+    line-height: 150%;
+    padding-left: 1.4rem;
+    display: table;
+    background-image: url("paperclip.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    font-size: 90%;
+}
+
+main article .footer {
+    border: 1px solid var(--main-article-footer-border-color);
+    border-radius: 6px;
+}
+
+main article .footer div {
+    display: inline;
+    line-height: 1.5rem;
+    padding: 2px;
+}
+
+main article .footer .left {
+    font-weight: bold;
+    color: var(--main-article-footer-left-text-color);
+}
+
+main article .footer .left:nth-child(n) {
+    display: inline-flex;
+}
+
+main article .footer .right {
+    float: right;
+}
+
 
 footer {
     margin-top: 2rem;

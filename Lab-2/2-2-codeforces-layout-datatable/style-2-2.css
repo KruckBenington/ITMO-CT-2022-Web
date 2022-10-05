@@ -3,6 +3,8 @@
     --border-radius: 6px;
     --black-color: #333;
     --caption-color: #3B5998;
+    --main-datatable-color: #d1d1d1;
+    --table-background-color: #f1f1f1b0;
     color: var(--black-color);
     font-family: Verdana, sans-serif;
     font-size: 16px;
@@ -80,6 +82,34 @@ aside {
 
 main {
     margin-right: 21rem;
+}
+
+main .datatable {
+    /*border: 1px solid var(--main-datatable-color);*/
+    /*border-radius: 6px;*/
+}
+
+main .datatable .caption {
+    background: var(--main-datatable-color);
+    border: 1px solid var(--main-datatable-color);
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+    padding: 2px 2px 2px 6px;
+}
+
+main .datatable table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+main .datatable table tbody tr:nth-child(2n-1) {
+    background: var(--table-background-color);
+}
+
+main .datatable table tr td, main .datatable table tr th {
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    border: 1px solid var(--main-datatable-color);
+    text-align: center;
 }
 
 footer {
