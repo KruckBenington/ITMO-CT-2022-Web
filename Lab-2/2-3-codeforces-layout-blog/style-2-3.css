@@ -10,6 +10,7 @@
     font-family: Verdana, sans-serif;
     font-size: 16px;
     --main-article-footer-border-color: #bfbfbf;
+    --main-footer-margin: 7px;
 }
 
 html {
@@ -138,14 +139,33 @@ main article .footer div {
 main article .footer .left {
     font-weight: bold;
     color: var(--main-article-footer-left-text-color);
+    margin: var(--main-footer-margin);
 }
 
 main article .footer .left:nth-child(n) {
     display: inline-flex;
 }
 
+main article .footer .left .positive-score {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+
 main article .footer .right {
     float: right;
+    margin: var(--main-footer-margin);
+    padding: 0;
+}
+
+main article .footer .right:nth-child(n) {
+    display: inline-flex;
+}
+
+main article .footer .right img {
+    margin: auto;
+    padding-left: 15px;
+    padding-right: 2px;
 }
 
 
