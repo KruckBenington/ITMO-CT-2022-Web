@@ -15,8 +15,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class SessionServlet extends HttpServlet {
-
-
+    ArrayList<MessagePair> userToText = new ArrayList<MessagePair>();
 
     public static class MessagePair {
         private final String user;
@@ -40,12 +39,10 @@ public class SessionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        if (session.getAttribute("user:text") == null) {
-            session.setAttribute("user:text", new ArrayList<MessagePair>());
-        }
 
         final String uri = request.getRequestURI();
-        response.setContentType("application/json");
+        response.setContentType("application/json;charset=utf-8");
+        response.setCharacterEncoding("utf-8");
         final PrintWriter writer = response.getWriter();
         final String json;
 
@@ -56,8 +53,24 @@ public class SessionServlet extends HttpServlet {
                     session.setAttribute("user", userName);
                 }
                 json = new Gson().toJson(userName);
-                response.getWriter().print(json);
-                response.getWriter().flush();
+                writer.print(json);
+                writer.flush();
+                break;
+            case "/message/add":
+                String text = request.getParameter("text");
+                userToText.add(new MessagePair((String) session.getAttribute("user"), text));
+                break;
+            case "/message/findAll":
+                if (session.getAttribute("user") != null) {
+                    json = new Gson().toJson(userToText.toArray());
+                    writer.print(json);
+                    writer.flush();
+                }
+                break;
+                // чат не должен показываться, пока пользователь не авторизирован
+                // пробелы и пустые строки не могут является контентом(user/text)
+                // пофиксить utf-8
+
         }
 
     }
