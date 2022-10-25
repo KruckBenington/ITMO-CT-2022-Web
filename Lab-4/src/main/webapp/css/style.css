@@ -1,0 +1,284 @@
+:root {
+    font-size: 16px;
+    font-family: Verdana, sans-serif;
+    color: rgb(34, 34, 34);
+
+    --border-color: rgb(185, 185, 185);
+    --boder: 1px solid var(--border-color);
+    --border-radius: 6px;
+    --caption-color: #3B5998;
+    --cur-nav_bar-cat-underline-color: #384cc5;
+    --main-article-title-color: #3B5998;
+    --main-article-information-color: #868686;
+    --main-article-footer-left-text-color: #269716;
+    --main-article-footer-border-color: #bfbfbf;
+    --main-footer-margin: 7px;
+    --main-datatable-color: #d1d1d1;
+    --table-background-color: #f1f1f1b0;
+}
+
+html {
+    min-width: 800px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+header {
+    position: relative;
+}
+
+header .languages {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+header .enter-or-register-box {
+    position: absolute;
+    top: calc(24px + 0.5rem);
+    right: 0;
+}
+
+header nav {
+    border: var(--boder);
+    border-radius: var(--border-radius);
+    margin: 0.5rem 0 2rem 0;
+}
+
+header nav ul {
+    padding: 0;
+    margin: 1rem;
+}
+
+header nav ul li {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    font-family: Arial, sans-serif;
+    margin-right: 1rem;
+}
+
+header nav ul li a .underlined {
+    text-decoration: solid underline var(--cur-nav_bar-cat-underline-color) 3px;
+
+}
+
+.middle {
+    display: flow-root;
+}
+
+aside {
+    float: right;
+    width: 20rem;
+}
+
+aside section {
+    border: var(--boder);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+aside section .header {
+    border-bottom: var(--boder);
+    padding: 0.25rem;
+    font-weight: bold;
+    color: var(--caption-color);
+}
+
+aside section .header:before {
+    content: "→ ";
+    font-size: 1.1rem;
+}
+
+aside section .body {
+    padding: 0.25rem;
+}
+
+aside section .footer {
+    border-top: var(--boder);
+    padding: 0.25rem;
+    text-align: right;
+    font-size: 0.8rem;
+}
+
+aside section .footer a:after {
+    content: " →";
+}
+
+main {
+    margin-right: 21rem;
+}
+
+main article .title {
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--main-article-title-color);
+}
+
+main article .information {
+    line-height: 170%;
+    font-size: 12px;
+    color: var(--main-article-information-color);
+}
+
+main article .body {
+    font-size: 15px;
+    padding-left: 1rem;
+    border-left: 4px solid #9b9b9b;
+}
+
+main article .body p:last-child {
+    margin-bottom: 0;
+}
+
+/*main article .attachment {
+    padding-left: 0;
+}
+
+main article .attachment li {
+    color: var(--main-article-information-color);
+    line-height: 150%;
+    padding-left: 1.4rem;
+    display: table;
+    background-image: url("paperclip.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    font-size: 90%;
+}*/
+
+main article .footer {
+    border: 1px solid var(--main-article-footer-border-color);
+    border-radius: 6px;
+    margin-top: 4px;
+    margin-bottom: 1rem;
+}
+
+main article .footer div {
+    display: inline;
+    line-height: 1.5rem;
+    padding: 2px;
+}
+
+main article .footer .left {
+    font-weight: bold;
+    color: var(--main-article-footer-left-text-color);
+    margin: var(--main-footer-margin);
+}
+
+main article .footer .left:nth-child(n) {
+    display: inline-flex;
+}
+
+main article .footer .left .positive-score {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+
+main article .footer .right {
+    float: right;
+    margin: var(--main-footer-margin);
+    padding: 0;
+}
+
+main article .footer .right:nth-child(n) {
+    display: inline-flex;
+}
+
+main article .footer .right img {
+    margin: auto;
+    padding-left: 15px;
+    padding-right: 2px;
+}
+
+
+main .datatable .caption {
+    background: var(--main-datatable-color);
+    border: 1px solid var(--main-datatable-color);
+    border-top-right-radius: var(--border-radius);
+    border-top-left-radius: var(--border-radius);
+    padding: 2px 2px 2px 6px;
+}
+
+main .datatable table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+main .datatable table tbody tr:nth-child(2n-1) {
+    background: var(--table-background-color);
+}
+
+main .datatable table tr td, main .datatable table tr th {
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    border: 1px solid var(--main-datatable-color);
+    text-align: center;
+}
+
+
+main .user_bar .user_information {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 4px;
+}
+
+main .user_bar .user_information img {
+    float: right;
+    margin-top: 12px;
+}
+
+main .user_bar .user_information h2 {
+    margin: 10px;
+}
+
+main .user_bar .nav_arrows {
+    font-size: 24px;
+    display: inline-flex;
+    text-indent: 6px;
+}
+
+main .user_bar .nav_arrows a {
+    text-decoration: none;
+}
+
+
+main .user_bar .nav_arrows .enabled {
+    color: var(--caption-color);
+}
+
+main .user_bar .nav_arrows .disabled {
+    color: var(--border-color);
+}
+
+.userlink_handle a {
+    text-decoration: none;
+    font-family: Arial, serif;
+}
+
+.userlink_handle .RED_color a{
+    color: red;
+}
+
+.userlink_handle .GREEN_color a{
+    color: green;
+}
+
+.userlink_handle .BLUE_color a{
+    color: blue;
+}
+
+footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: var(--boder);
+    text-align: center;
+}
