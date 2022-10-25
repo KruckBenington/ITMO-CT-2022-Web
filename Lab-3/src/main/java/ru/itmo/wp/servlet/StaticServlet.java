@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public class StaticServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String filePath = "C:\\Users\\Ropka\\OneDrive\\Рабочий стол\\WEB\\Lab-3\\src\\main\\webapp\\static";
+        final String filePath = "C:\\Users\\Ropka\\ИТМО - КТ\\Семестр 3\\CT-ITMO-2022-Web\\Lab-3\\src\\main\\webapp\\static";
         String[] uris = request.getRequestURI().split(Pattern.quote("+"));
         List<File> files = new ArrayList<>();
 
