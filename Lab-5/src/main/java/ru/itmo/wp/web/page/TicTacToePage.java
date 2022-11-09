@@ -38,10 +38,13 @@ public class TicTacToePage {
         state.crossesMove = !state.crossesMove;
         state.countOfNotEmptyCells++;
 
-        if (state.countOfNotEmptyCells == state.size) {
+        if (checkPhaseState(state).equals("DRAW")) {
+            if (state.countOfNotEmptyCells == state.size * state.size ) {
+                state.phase = checkPhaseState(state);
+            }
+        } else {
             state.phase = checkPhaseState(state);
         }
-
 
         view.put("state", state);
         session.setAttribute("state", state);
@@ -56,55 +59,59 @@ public class TicTacToePage {
         for (int i = 0; i < size; i++) {
             isWin = true;
             for (int j = 1; j < size; j++) {
-                if (!Objects.equals(table[i][j - 1], table[i][j])) {
+                if (notEqual(table[i][j - 1], table[i][j])) {
                     isWin = false;
                     break;
                 }
             }
 
             if (isWin) {
-                return "WIN" + table[i][0];
+                return "WON_" + table[i][0];
             }
         }
 
         for (int j = 0; j < size; j++) {
             isWin = true;
             for (int i = 1; i < size; i++) {
-                if (!Objects.equals(table[i - 1][j], table[i][j])) {
+                if (notEqual(table[i - 1][j], table[i][j])) {
                     isWin = false;
                     break;
                 }
             }
             if (isWin) {
-                return "WIN" + table[0][j];
+                return "WON_" + table[0][j];
             }
         }
 
         for (int j = 1; j < size; j++) {
             isWin = true;
-            if (!Objects.equals(table[j - 1][j - 1], table[j][j])) {
+            if (notEqual(table[j - 1][j - 1], table[j][j])) {
                 isWin = false;
                 break;
             }
         }
 
         if (isWin) {
-            return "WIN" + table[0][0];
+            return "WON_" + table[0][0];
         }
 
         for (int j = 1; j < size; j++) {
             isWin = true;
-            if (!Objects.equals(table[j - 1][size - (j - 1)], table[j][size - j])) {
+            if (notEqual(table[j - 1][size - j], table[j][size - (j + 1)])) {
                 isWin = false;
                 break;
             }
         }
 
         if (isWin) {
-            return "WIN" + table[0][size - 1];
+            return "WON_" + table[0][size - 1];
         }
 
         return "DRAW";
+    }
+
+    private boolean notEqual(String value1, String value2) {
+        return value1 == null || value2 == null || !Objects.equals(value1, value2);
     }
 
 

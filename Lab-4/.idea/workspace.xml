@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8323a6b0-b76f-41f4-9579-0bd3fc24f6ab" name="Changes" comment="Hw4 all tasks">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8323a6b0-b76f-41f4-9579-0bd3fc24f6ab" name="Changes" comment="Hw4 all tasks" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -241,6 +239,7 @@
       <workItem from="1666794820500" duration="2000" />
       <workItem from="1666858912081" duration="151000" />
       <workItem from="1666874592535" duration="16000" />
+      <workItem from="1666912883450" duration="298000" />
     </task>
     <task id="LOCAL-00001" summary="Hw4 Tastk 1">
       <created>1666272461916</created>
