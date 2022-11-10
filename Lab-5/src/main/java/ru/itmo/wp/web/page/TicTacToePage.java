@@ -2,6 +2,7 @@ package ru.itmo.wp.web.page;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
@@ -37,16 +38,13 @@ public class TicTacToePage {
         state.crossesMove = !state.crossesMove;
         state.countOfNotEmptyCells++;
 
-        String phase = checkPhaseState(state);
-
-        if (phase.equals("DRAW")) {
-            if (state.countOfNotEmptyCells == state.size * state.size) {
-                state.phase = "DRAW";
+        if (checkPhaseState(state).equals("DRAW")) {
+            if (state.countOfNotEmptyCells == state.size * state.size ) {
+                state.phase = checkPhaseState(state);
             }
         } else {
-            state.phase = phase;
+            state.phase = checkPhaseState(state);
         }
-
 
         view.put("state", state);
         session.setAttribute("state", state);
@@ -61,8 +59,7 @@ public class TicTacToePage {
         for (int i = 0; i < size; i++) {
             isWin = true;
             for (int j = 1; j < size; j++) {
-                if (!Objects.equals(table[i][j - 1], table[i][j])
-                        || table[i][j - 1] == null || table[i][j] == null) {
+                if (notEqual(table[i][j - 1], table[i][j])) {
                     isWin = false;
                     break;
                 }
@@ -76,8 +73,7 @@ public class TicTacToePage {
         for (int j = 0; j < size; j++) {
             isWin = true;
             for (int i = 1; i < size; i++) {
-                if (!Objects.equals(table[i - 1][j], table[i][j])
-                        || table[i - 1][j] == null || table[i][j] == null) {
+                if (notEqual(table[i - 1][j], table[i][j])) {
                     isWin = false;
                     break;
                 }
@@ -89,7 +85,7 @@ public class TicTacToePage {
 
         for (int j = 1; j < size; j++) {
             isWin = true;
-            if (!Objects.equals(table[j - 1][j - 1], table[j][j]) || table[j - 1][j - 1] == null || table[j][j] == null) {
+            if (notEqual(table[j - 1][j - 1], table[j][j])) {
                 isWin = false;
                 break;
             }
@@ -101,7 +97,7 @@ public class TicTacToePage {
 
         for (int j = 1; j < size; j++) {
             isWin = true;
-            if (!Objects.equals(table[j - 1][size - j - 1], table[j][size - j]) || table[j - 1][size - j - 1] == null || table[j][size - j] == null) {
+            if (notEqual(table[j - 1][size - j], table[j][size - (j + 1)])) {
                 isWin = false;
                 break;
             }
@@ -112,6 +108,10 @@ public class TicTacToePage {
         }
 
         return "DRAW";
+    }
+
+    private boolean notEqual(String value1, String value2) {
+        return value1 == null || value2 == null || !Objects.equals(value1, value2);
     }
 
 
