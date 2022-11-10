@@ -47,10 +47,10 @@ public class SessionServlet extends HttpServlet {
         switch (uri) {
             case "/message/auth":
                 String userName = request.getParameter("user");
-                if (userName != null && userName.trim().equals("")) {
-                    response.sendError(406);
-                } else {
+                if (userName == null || !userName.trim().equals("")) {
                     session.setAttribute("user", userName);
+                } else {
+                    response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE);
                 }
                 json = new Gson().toJson(userName);
                 writer.print(json);
@@ -61,7 +61,7 @@ public class SessionServlet extends HttpServlet {
                 if (text != null && !text.trim().equals("")) {
                     userToText.add(new MessagePair((String) session.getAttribute("user"), text));
                 } else {
-                    response.sendError(406);
+                    response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE);
                 }
                 break;
             case "/message/findAll":
