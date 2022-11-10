@@ -1,8 +1,6 @@
 package ru.itmo.wp.servlet;
 
 
-
-
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -19,7 +17,7 @@ public class SessionServlet extends HttpServlet {
 
     public static class MessagePair {
         private final String user;
-        private final  String text;
+        private final String text;
 
         public MessagePair(String user, String text) {
             this.text = text;
@@ -49,7 +47,9 @@ public class SessionServlet extends HttpServlet {
         switch (uri) {
             case "/message/auth":
                 String userName = request.getParameter("user");
-                if (userName != null) {
+                if (userName != null && userName.trim().equals("")) {
+                    response.sendError(406);
+                } else {
                     session.setAttribute("user", userName);
                 }
                 json = new Gson().toJson(userName);
@@ -58,7 +58,11 @@ public class SessionServlet extends HttpServlet {
                 break;
             case "/message/add":
                 String text = request.getParameter("text");
-                userToText.add(new MessagePair((String) session.getAttribute("user"), text));
+                if (text != null && !text.trim().equals("")) {
+                    userToText.add(new MessagePair((String) session.getAttribute("user"), text));
+                } else {
+                    response.sendError(406);
+                }
                 break;
             case "/message/findAll":
                 if (session.getAttribute("user") != null) {
@@ -67,9 +71,9 @@ public class SessionServlet extends HttpServlet {
                     writer.flush();
                 }
                 break;
-                // чат не должен показываться, пока пользователь не авторизирован
-                // пробелы и пустые строки не могут является контентом(user/text)
-                // пофиксить utf-8
+            // чат не должен показываться, пока пользователь не авторизирован
+            // пробелы и пустые строки не могут является контентом(user/text)
+            // пофиксить utf-8
 
         }
 
