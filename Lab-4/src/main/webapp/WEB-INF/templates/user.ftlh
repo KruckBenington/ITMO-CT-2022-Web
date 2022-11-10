@@ -4,9 +4,9 @@
 
 <@c.page>
     <#if handle?has_content>
-        <#assign u = c.findBy(users, "handle", handle)!/>
+        <#assign u = (c.findBy(users, "handle", handle!""))!/>
     <#else>
-        <#assign u = c.findBy(users, "id", user_id)!/>
+        <#assign u = (c.findBy(users, "id", user_id!-1))!/>
     </#if>
 
     <#if u?has_content>

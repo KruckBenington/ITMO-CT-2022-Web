@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 public class FrontServlet extends HttpServlet {
     private static final String BASE_PACKAGE = FrontServlet.class.getPackage().getName() + ".page";
     private static final String DEFAULT_ACTION = "action";
+    private static final String UTF_8 = StandardCharsets.UTF_8.name();
 
     private Configuration sourceConfiguration;
     private Configuration targetConfiguration;
@@ -43,7 +45,7 @@ public class FrontServlet extends HttpServlet {
         configuration.setDefaultEncoding(StandardCharsets.UTF_8.name());
         configuration.setTemplateExceptionHandler(debug ? TemplateExceptionHandler.HTML_DEBUG_HANDLER :
                 TemplateExceptionHandler.RETHROW_HANDLER);
-        configuration.setLocale(Locale.forLanguageTag("en_US"));
+        configuration.setLocalizedLookup(false);
         configuration.setLogTemplateExceptions(false);
         configuration.setWrapUncheckedExceptions(true);
 
@@ -119,15 +121,15 @@ public class FrontServlet extends HttpServlet {
         method.setAccessible(true);
 
         Object[] args = new Object[method.getParameterCount()];
-        int c = 0;
+        int index = 0;
 
         for (Class<?> type : method.getParameterTypes()) {
             if (type.getName().equals("java.util.Map")) {
-                args[c] = view;
+                args[index] = view;
             } else {
-                args[c] = request;
+                args[index] = request;
             }
-            c++;
+            index++;
         }
         try {
             method.invoke(page, args);
@@ -155,15 +157,15 @@ public class FrontServlet extends HttpServlet {
         String languageAdd = "";
         String  langAttribute = (String) session.getAttribute("lang");
         if (langAttribute != null && !langAttribute.equals("en")) {
-            languageAdd = "_" + (String) session.getAttribute("lang");
+            languageAdd = "_" + session.getAttribute("lang");
         }
 
         Template template;
 
         try {
-            template = newTemplate(pageClass.getSimpleName() + languageAdd + ".ftlh");
+            template = newTemplate(URLDecoder.decode(pageClass.getSimpleName() + languageAdd, UTF_8) + ".ftlh");
         } catch (ServletException ignored) {
-            template = newTemplate(pageClass.getSimpleName() + ".ftlh");
+            template = newTemplate( URLDecoder.decode(pageClass.getSimpleName(), UTF_8) + ".ftlh");
         }
         response.setContentType("text/html");
         response.setCharacterEncoding(StandardCharsets.UTF_8.name());

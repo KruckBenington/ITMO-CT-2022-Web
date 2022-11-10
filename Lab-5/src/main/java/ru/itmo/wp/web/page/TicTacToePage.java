@@ -2,7 +2,6 @@ package ru.itmo.wp.web.page;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
@@ -38,8 +37,14 @@ public class TicTacToePage {
         state.crossesMove = !state.crossesMove;
         state.countOfNotEmptyCells++;
 
-        if (state.countOfNotEmptyCells == state.size) {
-            state.phase = checkPhaseState(state);
+        String phase = checkPhaseState(state);
+
+        if (phase.equals("DRAW")) {
+            if (state.countOfNotEmptyCells == state.size * state.size) {
+                state.phase = "DRAW";
+            }
+        } else {
+            state.phase = phase;
         }
 
 
@@ -56,52 +61,54 @@ public class TicTacToePage {
         for (int i = 0; i < size; i++) {
             isWin = true;
             for (int j = 1; j < size; j++) {
-                if (!Objects.equals(table[i][j - 1], table[i][j])) {
+                if (!Objects.equals(table[i][j - 1], table[i][j])
+                        || table[i][j - 1] == null || table[i][j] == null) {
                     isWin = false;
                     break;
                 }
             }
 
             if (isWin) {
-                return "WIN" + table[i][0];
+                return "WON_" + table[i][0];
             }
         }
 
         for (int j = 0; j < size; j++) {
             isWin = true;
             for (int i = 1; i < size; i++) {
-                if (!Objects.equals(table[i - 1][j], table[i][j])) {
+                if (!Objects.equals(table[i - 1][j], table[i][j])
+                        || table[i - 1][j] == null || table[i][j] == null) {
                     isWin = false;
                     break;
                 }
             }
             if (isWin) {
-                return "WIN" + table[0][j];
+                return "WON_" + table[0][j];
             }
         }
 
         for (int j = 1; j < size; j++) {
             isWin = true;
-            if (!Objects.equals(table[j - 1][j - 1], table[j][j])) {
+            if (!Objects.equals(table[j - 1][j - 1], table[j][j]) || table[j - 1][j - 1] == null || table[j][j] == null) {
                 isWin = false;
                 break;
             }
         }
 
         if (isWin) {
-            return "WIN" + table[0][0];
+            return "WON_" + table[0][0];
         }
 
         for (int j = 1; j < size; j++) {
             isWin = true;
-            if (!Objects.equals(table[j - 1][size - (j - 1)], table[j][size - j])) {
+            if (!Objects.equals(table[j - 1][size - j - 1], table[j][size - j]) || table[j - 1][size - j - 1] == null || table[j][size - j] == null) {
                 isWin = false;
                 break;
             }
         }
 
         if (isWin) {
-            return "WIN" + table[0][size - 1];
+            return "WON_" + table[0][size - 1];
         }
 
         return "DRAW";

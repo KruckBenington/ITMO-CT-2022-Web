@@ -11,6 +11,28 @@
   <component name="ChangeListManager">
     <list default="true" id="8323a6b0-b76f-41f4-9579-0bd3fc24f6ab" name="Changes" comment="Hw4 all tasks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/itmo/web/hw4/web/FreemarkerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/itmo/web/hw4/web/FreemarkerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/post.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/post.ftlh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/user.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/user.ftlh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ru/itmo/web/hw4/web/FreemarkerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ru/itmo/web/hw4/web/FreemarkerServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw4/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw4/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw4/WEB-INF/classes/ru/itmo/web/hw4/web/FreemarkerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw4/WEB-INF/classes/ru/itmo/web/hw4/web/FreemarkerServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw4/WEB-INF/templates/post.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw4/WEB-INF/templates/post.ftlh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw4/WEB-INF/templates/user.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw4/WEB-INF/templates/user.ftlh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw4/WEB-INF/templates/users.ftlh" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw4/WEB-INF/templates/users.ftlh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/hw4/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/hw4/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/src/main/java/ru/itmo/wp/web/FrontServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/src/main/java/ru/itmo/wp/web/FrontServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/src/main/java/ru/itmo/wp/web/page/TicTacToePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/src/main/java/ru/itmo/wp/web/page/TicTacToePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/target/classes/ru/itmo/wp/web/FrontServlet$Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/target/classes/ru/itmo/wp/web/FrontServlet$Route.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/target/classes/ru/itmo/wp/web/FrontServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/target/classes/ru/itmo/wp/web/FrontServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/target/classes/ru/itmo/wp/web/page/TicTacToePage$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/target/classes/ru/itmo/wp/web/page/TicTacToePage$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/target/classes/ru/itmo/wp/web/page/TicTacToePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/target/classes/ru/itmo/wp/web/page/TicTacToePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/target/lesson5/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/target/lesson5/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/target/lesson5/WEB-INF/classes/ru/itmo/wp/web/FrontServlet$Route.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/target/lesson5/WEB-INF/classes/ru/itmo/wp/web/FrontServlet$Route.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/target/lesson5/WEB-INF/classes/ru/itmo/wp/web/FrontServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/target/lesson5/WEB-INF/classes/ru/itmo/wp/web/FrontServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/target/lesson5/WEB-INF/classes/ru/itmo/wp/web/page/TicTacToePage$State.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/target/lesson5/WEB-INF/classes/ru/itmo/wp/web/page/TicTacToePage$State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab-5/target/lesson5/WEB-INF/classes/ru/itmo/wp/web/page/TicTacToePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab-5/target/lesson5/WEB-INF/classes/ru/itmo/wp/web/page/TicTacToePage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,6 +263,7 @@
       <workItem from="1666794820500" duration="2000" />
       <workItem from="1666858912081" duration="151000" />
       <workItem from="1666874592535" duration="16000" />
+      <workItem from="1666885541886" duration="5063000" />
     </task>
     <task id="LOCAL-00001" summary="Hw4 Tastk 1">
       <created>1666272461916</created>

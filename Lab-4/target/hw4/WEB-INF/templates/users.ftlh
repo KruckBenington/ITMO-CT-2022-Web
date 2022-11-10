@@ -15,7 +15,7 @@
             <#list users as u>
                 <tr>
                     <td>
-                        <#if user?? && user.id == u.id>*<@c.userlink u true/></#if><@c.userlink u true/>
+                        <#if user?? && user.id == u.id>*</#if> <@c.userlink u true/>
                     </td>
                     <td>
                         <@c.userlink u false/>
