@@ -133,7 +133,18 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public long findCount() {
-        return findAll().size();
+        long count = 0;
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM User")) {
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    resultSet.next();
+                    count = resultSet.getLong(1);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find User.", e);
+        }
+        return count;
     }
 
     @Override

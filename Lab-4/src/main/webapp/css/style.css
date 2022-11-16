@@ -67,7 +67,8 @@ header nav ul li a {
 }
 
 header nav ul li a .underlined {
-    text-decoration: solid underline var(--cur-nav_bar-cat-underline-color) 3px;
+    /*text-decoration: solid underline var(--cur-nav_bar-cat-underline-color) 3px;*/
+    border-bottom: 3px solid var(--cur-nav_bar-cat-underline-color);
 
 }
 

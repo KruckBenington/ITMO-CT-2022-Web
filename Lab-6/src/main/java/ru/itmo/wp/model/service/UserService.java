@@ -19,8 +19,6 @@ public class UserService {
         validateLoginAndEmail(user);
 
         validatePassword(password);
-        validatePasswordConfirmation(passwordConfirmation);
-
         if (!password.equals(passwordConfirmation)) {
             throw new ValidationException("Password doesn't match password confirmation");
         }
@@ -45,7 +43,7 @@ public class UserService {
         if (Strings.isNullOrEmpty(user.getEmail())) {
             throw new ValidationException("Email is required");
         }
-        if (!user.getEmail().matches("^(.+)@(\\S+)$")) {
+        if (!user.getEmail().matches("^([^@]*)@([^@]*)$")) {
             throw new ValidationException("Email must contain @");
         }
         if (user.getEmail().length() > 100) {
@@ -70,17 +68,6 @@ public class UserService {
         }
     }
 
-    private void validatePasswordConfirmation(String password) throws ValidationException {
-        if (Strings.isNullOrEmpty(password)) {
-            throw new ValidationException("Password confirmation is required");
-        }
-        if (password.length() < 4) {
-            throw new ValidationException("Password confirmation can't be shorter than 4 characters");
-        }
-        if (password.length() > 64) {
-            throw new ValidationException("Password confirmation can't be longer than 64 characters");
-        }
-    }
 
 
     public void register(User user, String password) {
