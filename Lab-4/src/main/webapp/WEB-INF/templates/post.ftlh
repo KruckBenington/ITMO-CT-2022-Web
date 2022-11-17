@@ -2,7 +2,7 @@
 <#import "./common.ftlh" as c>
 
 <@c.page>
-    <#assign p = c.findBy(posts, "id", post_id)!/>
+    <#assign p = c.findBy(posts, "id", post_id!-1)!/>
 
     <#if p?has_content>
         <@c.usePost p true/>

@@ -52,6 +52,7 @@ public class FreemarkerServlet extends HttpServlet {
 
             if (uri == null || uri.isEmpty() || uri.equals("/")) {
                 uri = "/temp";
+                response.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
             }
 
             template = freemarkerConfiguration.getTemplate(URLDecoder.decode(uri, UTF_8) + ".ftlh");
@@ -89,6 +90,10 @@ public class FreemarkerServlet extends HttpServlet {
                 } catch (NumberFormatException ignored) {
 
                 }
+            }
+
+            if (e.getValue() == null) {
+                data.put(e.getKey(), " ");
             }
         }
 

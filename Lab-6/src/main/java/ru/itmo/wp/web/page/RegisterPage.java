@@ -16,9 +16,9 @@ public class RegisterPage extends Page {
         user.setLogin(request.getParameter("login"));
         user.setEmail(request.getParameter("email"));
         String password = request.getParameter("password");
-        String passwordToConfirm = request.getParameter("passwordConfirmation");
+        String passwordConfirmation = request.getParameter("passwordConfirmation");
 
-        userService.validateRegistration(user, password, passwordToConfirm);
+        userService.validateRegistration(user, password, passwordConfirmation);
         userService.register(user, password);
 
         request.getSession().setAttribute("message", "You are successfully registered!");
