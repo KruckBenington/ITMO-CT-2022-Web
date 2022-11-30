@@ -9,7 +9,13 @@ public interface ArticleRepository {
 
     void save(Article article, User user);
 
+    void changeHidden(long id);
+
     Article find(long id);
 
     List<Article> findAll();
+
+    List<Article> findAllNotHidden();
+    
+    List<Article> findAllByUserId(long userId);
 }

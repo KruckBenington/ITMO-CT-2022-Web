@@ -28,9 +28,6 @@
             <div class="noData">
                 No articles.
             </div>
-            <div class="noData">
-                No articles.
-            </div>
         </article>
 
     </div>
@@ -44,15 +41,11 @@
                 },
                 function (response) {
                     response["articles"].forEach(function (article) {
-                        if (!article.hidden) {
-                            $noData.hide();
-                            const $art = $($(".articles template").prop("content")).clone();
-                            $art.find(".title").text(article.title);
-                            $art.find(".text").text(article.text);
-                            $(".articles article").append($art);
-                        } else {
-                            $noData.text("The article was hidden");
-                        }
+                        $noData.hide();
+                        const $art = $($(".articles template").prop("content")).clone();
+                        $art.find(".title").text(article.title);
+                        $art.find(".text").text(article.text);
+                        $(".articles article").append($art);
                     });
                 }
             );

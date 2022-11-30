@@ -22,3 +22,7 @@
 .datatable tbody tr:nth-child(2n-1) {
     background-color: var(--datatable-dark-cell-color);
 }
+.datatable tbody input.button-field {
+    height:  40%;
+    padding: 0.1rem 1.5rem;
+}

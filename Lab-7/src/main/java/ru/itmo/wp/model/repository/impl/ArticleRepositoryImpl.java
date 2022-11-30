@@ -15,6 +15,20 @@ import java.util.List;
 public class ArticleRepositoryImpl implements ArticleRepository {
     private final DataSource DATA_SOURCE = DatabaseUtils.getDataSource();
 
+
+    @Override
+    public void changeHidden(long id) {
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("UPDATE Articles SET hidden = 1 - hidden WHERE id=?")) {
+                statement.setLong(1, id);
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find Article.", e);
+        }
+    }
+
+
+
     @Override
     public Article find(long id) {
         try (Connection connection = DATA_SOURCE.getConnection()) {
@@ -27,6 +41,43 @@ public class ArticleRepositoryImpl implements ArticleRepository {
         } catch (SQLException e) {
             throw new RepositoryException("Can't find Article.", e);
         }
+    }
+
+    @Override
+    public List<Article> findAllByUserId(long userId) {
+        List<Article> articles = new ArrayList<>();
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM Article WHERE userId=? ORDER BY id DESC")) {
+                statement.setLong(1, userId);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    Article article;
+                    while ((article = toArticle(statement.getMetaData(), resultSet)) != null) {
+                        articles.add(article);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find Article.", e);
+        }
+        return articles;
+    }
+
+    @Override
+    public List<Article> findAllNotHidden() {
+        List<Article> articles = new ArrayList<>();
+        try (Connection connection = DATA_SOURCE.getConnection()) {
+            try (PreparedStatement statement = connection.prepareStatement("SELECT * FROM Article WHERE hidden = 0 ORDER BY id DESC")) {
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    Article article;
+                    while ((article = toArticle(statement.getMetaData(), resultSet)) != null) {
+                        articles.add(article);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RepositoryException("Can't find Article.", e);
+        }
+        return articles;
     }
 
     @Override

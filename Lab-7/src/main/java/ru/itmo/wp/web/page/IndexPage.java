@@ -24,6 +24,6 @@ public class IndexPage {
     }
 
     private void findAllArticles(HttpServletRequest request, Map<String, Object> view) {
-        view.put("articles", articleRepository.findAll());
+        view.put("articles", articleRepository.findAllNotHidden());
     }
 }

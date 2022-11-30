@@ -20,9 +20,9 @@ public class ArticlePage {
         Article article = new Article();
         String title = request.getParameter("title");
         String text = request.getParameter("text");
+        articleService.validateArticle(title, text);
         article.setTitle(title);
         article.setText(text);
-        articleService.validateArticle(title, text);
         articleService.createArticle(article, (User) request.getSession().getAttribute("user"));
         request.getSession().setAttribute("message", "The Article" + title + "was successfully created");
         throw new RedirectException("/index");

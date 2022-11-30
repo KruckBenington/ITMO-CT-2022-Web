@@ -26,12 +26,31 @@ public class ArticleService {
         }
     }
 
-    public void createArticle(Article article, User user) {
+    public void createArticle(Article article, User user) throws ValidationException {
+        if (user == null) {
+            throw new ValidationException("Not logged user cannot post article");
+        }
         articleRepository.save(article, user);
     }
 
     public List<Article> findAll(){
         return articleRepository.findAll();
+    }
+
+    public List<Article> findAllNotHidden(){
+        return articleRepository.findAllNotHidden();
+    }
+
+    public Article find(long id) {
+        return articleRepository.find(id);
+    }
+
+    public void changeArticleHidden(long id) {
+        articleRepository.changeHidden(id);
+    }
+
+    public List<Article> findAllByUserId(long userId){
+        return articleRepository.findAllByUserId(userId);
     }
 
 }
