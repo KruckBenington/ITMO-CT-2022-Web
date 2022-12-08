@@ -2,7 +2,9 @@ package ru.itmo.wp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import ru.itmo.wp.domain.Post;
 import ru.itmo.wp.domain.User;
+import ru.itmo.wp.service.PostService;
 import ru.itmo.wp.service.UserService;
 
 import javax.servlet.http.HttpSession;
