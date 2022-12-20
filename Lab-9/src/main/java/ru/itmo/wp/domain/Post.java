@@ -30,6 +30,7 @@ public class Post {
     @JoinTable(name = "post_tag",
             joinColumns = @JoinColumn(name = "post_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    @OrderBy("id desc")
     private Set<Tag> tags;
 
     @NotNull
